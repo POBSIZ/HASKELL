@@ -1,7 +1,6 @@
 module Main (main) where
 
-import Reader_Monad_7 (m7)
+import Writer_Monad_8 (m8)
 
 main :: IO ()
-main = do
-  m7
+main = do m8

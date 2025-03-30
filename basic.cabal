@@ -39,6 +39,7 @@ library
       Monad_1
       Reader_Monad_7
       State_Monad_6
+      Writer_Monad_8
   other-modules:
       Paths_basic
   autogen-modules:
