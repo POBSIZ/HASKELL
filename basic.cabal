@@ -37,6 +37,7 @@ library
       List_Monad_4
       Maybe_Monad_2
       Monad_1
+      Monad_Transformer_9
       Reader_Monad_7
       State_Monad_6
       Writer_Monad_8
@@ -54,6 +55,7 @@ library
     , containers
     , mtl
     , parallel
+    , transformers
   default-language: Haskell2010
 
 executable basic
@@ -71,4 +73,5 @@ executable basic
     , containers
     , mtl
     , parallel
+    , transformers
   default-language: Haskell2010
