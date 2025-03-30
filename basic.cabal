@@ -1,0 +1,71 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           basic
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/fib-cli#readme>
+homepage:       https://github.com/githubuser/fib-cli#readme
+bug-reports:    https://github.com/githubuser/fib-cli/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2025 Author name here
+license:        BSD-3-Clause
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/fib-cli
+
+library
+  exposed-modules:
+      B1
+      B10
+      B11
+      B2
+      B3
+      B4
+      B5
+      B6
+      B7
+      B8
+      B9
+      EitherMonad_3
+      IoMonad_5
+      MaybeMonad_2
+      Monad_1
+      StateMonad_6
+  other-modules:
+      Paths_basic
+  autogen-modules:
+      Paths_basic
+  hs-source-dirs:
+      gpt_teacher/src
+      gpt_teacher/src/basic
+      gpt_teacher/src/monad
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , mtl
+    , parallel
+  default-language: Haskell2010
+
+executable basic
+  main-is: Main.hs
+  other-modules:
+      Paths_basic
+  autogen-modules:
+      Paths_basic
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , basic
+    , containers
+    , mtl
+    , parallel
+  default-language: Haskell2010
