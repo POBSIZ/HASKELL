@@ -1,4 +1,4 @@
-module M3 (m3) where
+module Either_Monad_3 (m3) where
 
 -- 3. Either Monad – 실패에 이유를 담다
 

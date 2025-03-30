@@ -1,6 +1,11 @@
-module M1 (m1, functor, applicative, monad) where
+module Monad_1 (m1) where
 
 -- 1. What is Monad
+
+-- Monad :: String
+-- Monad = 함수형 프로그래밍에서 연산을 순차적으로 연결할 수 있게 해주는 일종의 컨테이너이자 추상화된 계산 규칙
+-- Monad = 함수형 프로그래밍에서 연산을 정의하고 추상화하여 합성 가능한 연산을 만들 수 있도록 하는 개념
+-- Monad = 연산의 순서를 제어하고 부작용을 다루기 위해 컨텍스트 안에서 값을 감싸고, 연속적인 연산을 안전하게 연결할 수 있게 해주는 추상화이다.
 
 -- 1-1. Functor
 -- 컨테이너 안의 값을 변형하는 인터페이스

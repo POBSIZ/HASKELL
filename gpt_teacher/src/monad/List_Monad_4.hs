@@ -1,4 +1,4 @@
-module M4 (m4) where
+module List_Monad_4 (m4) where
 
 -- 4. List Monad – 여러 가능성의 세계
 comb :: (Monad m, Num b) => m b -> m b -> m b

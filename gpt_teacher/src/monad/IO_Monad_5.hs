@@ -1,4 +1,4 @@
-module M5 (m5) where
+module IO_Monad_5 (m5) where
 
 -- 5. IO Monad
 
@@ -64,8 +64,9 @@ m5 = do
 --   name <- getLine
 --   putStrLn ("Hi " ++ name)
 
-greet :: IO ()
-greet = putStrLn "Your name?" >> getLine >>= \line -> putStrLn $ "Hi " ++ line
+-- A :
+-- greet :: IO ()
+-- greet = putStrLn "Your name?" >> getLine >>= \line -> putStrLn $ "Hi " ++ line
 
 -- echoTwice :: IO ()
 -- echoTwice = do
@@ -74,5 +75,6 @@ greet = putStrLn "Your name?" >> getLine >>= \line -> putStrLn $ "Hi " ++ line
 --   putStrLn line
 --   putStrLn line
 
-echoTwice :: IO ()
-echoTwice = putStrLn "Say something:" >> getLine >>= \line -> putStrLn line >> putStrLn line
+-- A :
+-- echoTwice :: IO ()
+-- echoTwice = putStrLn "Say something:" >> getLine >>= \line -> putStrLn line >> putStrLn line

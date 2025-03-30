@@ -1,4 +1,4 @@
-module M6 (m6) where
+module State_Monad_6 (m6) where
 
 -- 6. State / Reader / Writer Monad
 {-

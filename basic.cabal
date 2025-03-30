@@ -32,11 +32,13 @@ library
       B7
       B8
       B9
-      EitherMonad_3
-      IoMonad_5
-      MaybeMonad_2
+      Either_Monad_3
+      IO_Monad_5
+      List_Monad_4
+      Maybe_Monad_2
       Monad_1
-      StateMonad_6
+      Reader_Monad_7
+      State_Monad_6
   other-modules:
       Paths_basic
   autogen-modules:

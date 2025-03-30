@@ -1,4 +1,4 @@
-module M2 (m2) where
+module Maybe_Monad_2 (m2) where
 
 -- 2. Maybe Monad – 실패 가능성 표현하기
 

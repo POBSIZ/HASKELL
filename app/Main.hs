@@ -1,11 +1,7 @@
 module Main (main) where
 
--- import M1 (m1)
--- import M2 (m2)
--- import M3 (m3)
--- import M4 (m4)
--- import M5 (m5)
-import M6 (m6)
+import Reader_Monad_7 (m7)
 
 main :: IO ()
-main = do m6
+main = do
+  m7
