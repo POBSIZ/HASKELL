@@ -1,6 +1,6 @@
 module Monad_Transformer_9 (m9) where
 
-import Control.Monad.Except (ExceptT, runExceptT)
+import Control.Monad.Except (ExceptT, MonadError (throwError), runExceptT)
 import Control.Monad.IO.Class (MonadIO (liftIO))
 import Control.Monad.Reader (ReaderT (runReaderT))
 import Control.Monad.Trans.Maybe (MaybeT (MaybeT), runMaybeT)
@@ -79,6 +79,34 @@ greetUser = do
   name <- askName
   liftIO $ putStrLn $ "Hi! " ++ name ++ " Greeting!"
 
+{-
+  ✅ ExceptT란?
+  “Either e를 모나드 스택에서 쓰고 싶다!”
+  → 그럴 땐 ExceptT e m a 사용!
+
+  newtype ExceptT e m a = ExceptT { runExceptT :: m (Either e a) }
+
+  •	e는 에러 정보
+	•	a는 성공 시 결과
+	•	m은 IO, State, Reader 등 바깥쪽 모나드
+
+  ✅ 기본 함수
+  Function                                                              Description
+  ---
+  throwError :: e -> ExceptT e m a                                      실패를 발생시킴
+  catchError :: ExceptT e m a -> (e -> ExceptT e m a) -> ExceptT e m a  실패를 잡아서 처리
+  runExceptT :: ExceptT e m a -> m (Either e a)                         실행 결과 꺼내기
+-}
+
+askNumber :: ExceptT String IO Int
+askNumber = do
+  liftIO $ putStrLn "Enter a number:"
+  input <- liftIO getLine
+  if all (`elem` "0123456789") input
+    then return (read input)
+    else throwError "Not a valid number!"
+
+-- main function
 m9 :: IO ()
 m9 = do
   -- MaybeT & IO
@@ -100,6 +128,10 @@ m9 = do
   case result3 of
     Nothing -> putStrLn "No input given."
     Just () -> return ()
+
+  -- ExceptT & IO
+  result4 <- runExceptT askNumber
+  print result4
 
 {-
   🧠 요약 – Monad Transformer 핵심
