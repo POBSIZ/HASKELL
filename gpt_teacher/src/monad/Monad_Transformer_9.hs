@@ -106,6 +106,32 @@ askNumber = do
     then return (read input)
     else throwError "Not a valid number!"
 
+{-
+  🛠 실습 과제
+
+  다음 구조를 직접 구현해보세요:
+
+  목표:
+    •	사용자에게 나눗셈할 두 수를 입력받기
+    •	0으로 나누면 throwError "Cannot divide by zero!"
+    •	나눗셈 결과 출력
+-}
+safeDivide :: Int -> Int -> ExceptT String IO Int
+safeDivide a b
+  | b == 0 = throwError "Cannot divide by zero!"
+  | otherwise = return $ a `div` b
+
+runDivision :: IO ()
+runDivision = do
+  liftIO $ putStrLn "Enter numerator:"
+  numerator <- liftIO getLine
+  liftIO $ putStrLn "Enter denominator:"
+  denominator <- liftIO getLine
+  result <- runExceptT $ safeDivide (read numerator) (read denominator)
+  case result of
+    Left err -> liftIO $ putStrLn $ "Error: " ++ show err
+    Right res -> liftIO $ putStrLn $ "Result: " ++ show res
+
 -- main function
 m9 :: IO ()
 m9 = do
@@ -132,6 +158,9 @@ m9 = do
   -- ExceptT & IO
   result4 <- runExceptT askNumber
   print result4
+
+  -- 실습 과제
+  runDivision
 
 {-
   🧠 요약 – Monad Transformer 핵심
