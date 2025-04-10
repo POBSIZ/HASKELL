@@ -21,6 +21,7 @@ dependencies:
   - containers
   - mtl
   - transformers
+  - lens
 
 ghc-options:
   - -Wall
@@ -35,9 +36,10 @@ ghc-options:
 
 library:
   source-dirs:
-    - gpt_teacher/src
-    - gpt_teacher/src/basic
-    - gpt_teacher/src/monad
+    - gpt_teacher/src/*
+    - gpt_teacher/src/1.basic
+    - gpt_teacher/src/2.monad
+    - gpt_teacher/src/3.lens
 
 executables:
   basic:

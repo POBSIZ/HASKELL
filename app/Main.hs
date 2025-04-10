@@ -1,6 +1,8 @@
 module Main (main) where
 
-import Monad_Transformer_9 (m9)
+import Lens_3 (l3)
 
 main :: IO ()
-main = do m9
+main = do
+  l3
+  putStrLn $ ""

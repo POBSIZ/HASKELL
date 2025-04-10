@@ -16,11 +16,11 @@ functor = do
   print $ fmap (+ (1 :: Integer)) Nothing -- Nothing
   putStrLn $ ""
 
+-- 1-2. Applicative
+-- 컨테이너 안에 함수가 들어있을 때 사용
 foo :: (Num a) => a -> a -> a -> a
 foo x y z = x + y + z
 
--- 1-2. Applicative
--- 컨테이너 안에 함수가 들어있을 때 사용
 applicative :: IO ()
 applicative = do
   putStrLn $ "-- Applicative"

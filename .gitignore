@@ -1,0 +1,22 @@
+# Haskell
+*/**/*.hi
+*/**/*.o
+.DS_Store
+.stack-work
+cabal-dev
+dist
+dist-newstyle
+cabal.project.local
+cabal.project.local~
+cabal.project.local.bak
+cabal.sandbox.config
+cabal.config
+cabal.project
+cabal.project.freeze
+cabal.project.local.freeze
+cabal.project.local.freeze~
+cabal.project.local.freeze.bak
+cabal.project.local.freeze.bak~
+
+# Git
+.git
