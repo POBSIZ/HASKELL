@@ -36,10 +36,12 @@ ghc-options:
 
 library:
   source-dirs:
-    - gpt_teacher/src/*
+    - gpt_teacher/src/
     - gpt_teacher/src/1.basic
     - gpt_teacher/src/2.monad
     - gpt_teacher/src/3.lens
+    - gpt_teacher/src/4.prism
+    - gpt_teacher/src/5.complex
 
 executables:
   basic:

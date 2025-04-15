@@ -46,15 +46,20 @@ library
       Lens_1
       Lens_2
       Lens_3
+      Prism_1
+      Prism_2
+      Complex_1
   other-modules:
       Paths_basic
   autogen-modules:
       Paths_basic
   hs-source-dirs:
-      gpt_teacher/src/*
+      gpt_teacher/src/
       gpt_teacher/src/1.basic
       gpt_teacher/src/2.monad
       gpt_teacher/src/3.lens
+      gpt_teacher/src/4.prism
+      gpt_teacher/src/5.complex
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
