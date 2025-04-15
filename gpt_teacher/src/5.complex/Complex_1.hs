@@ -1,4 +1,9 @@
+{-# LANGUAGE TemplateHaskell #-}
+
 module Complex_1 (c1) where
+
+import Control.Lens
+import Control.Monad.State
 
 {-
 이제 Lens의 강력함을 상태(State)와 결합해서 실전에서 어떻게 활용할 수 있는지를 배워봅시다.
@@ -10,44 +15,33 @@ module Complex_1 (c1) where
 “복잡한 상태 값을 깔끔하게 수정하고 읽을 수 있는 함수형 방식”
 
 우리는 Lens를 이용해 State Monad 내부의 필드를
-	•	쉽게 읽고 (use, preuse)
-	•	수정하고 (.=, %=)
-	•	조합해서 관리할 수 있습니다.
+•	쉽게 읽고 (use, preuse)
+•	수정하고 (.=, %=)
+•	조합해서 관리할 수 있습니다.
 
-⸻
+-}
 
-✅ 필요한 라이브러리
-
-import Control.Lens
-import Control.Monad.State
-
-⸻
-
-🧱 예제 구조: RPG 캐릭터 상태
-
-{-# LANGUAGE TemplateHaskell #-}
-
+-- 🧱 예제 구조: RPG 캐릭터 상태
 data Character = Character
-  { _hp    :: Int
-  , _mp    :: Int
-  , _name  :: String
-  } deriving (Show)
+  { _hp :: Int,
+    _mp :: Int,
+    _name :: String
+  }
+  deriving (Show)
 
 makeLenses ''Character
 
-⸻
-
+{-
 ✅ State Monad와 Lens 연동 – 핵심 연산자
 
-연산자	설명
-use field	현재 상태에서 해당 필드 값을 가져오기 (State 모나드 안에서)
-field .= val	필드를 새로운 값으로 설정
-field %= f	필드에 함수 적용 (기존 값 변형)
-zoom lens	부분 상태만 포커싱해서 서브 State 실행
+연산자          설명
+use field     현재 상태에서 해당 필드 값을 가져오기 (State 모나드 안에서)
+field .= val  필드를 새로운 값으로 설정
+field %= f    필드에 함수 적용 (기존 값 변형)
+zoom lens     부분 상태만 포커싱해서 서브 State 실행
+-}
 
-⸻
-
-🧪 예제: 캐릭터 행동 정의
+-- 🧪 예제: 캐릭터 행동 정의
 
 -- HP 10 감소
 takeDamage :: State Character ()
@@ -66,8 +60,7 @@ gameTurn = do
 runGame :: Character -> Character
 runGame = execState gameTurn
 
-⸻
-
+{-
 ✍️ 실습 과제
 
 직접 아래를 작성해보세요!
@@ -78,6 +71,27 @@ runGame = execState gameTurn
 5.	runMagic으로 실행해 최종 결과 출력
 -}
 
+initCharacter :: Character
+initCharacter = Character 100 50 "Alice"
+
+castSpell :: State Character ()
+castSpell = mp -= 20
+
+fullRestore :: State Character ()
+fullRestore = do
+  mp .= 100
+  hp .= 100
+
+magicTurn :: State Character ()
+magicTurn = do
+  castSpell
+  takeDamage
+  rename "Mage"
+
+runMagic :: Character -> Character
+runMagic = execState magicTurn
+
 c1 :: IO ()
 c1 = do
-  print $ ""
+  print $ runGame initCharacter
+  print $ runMagic initCharacter

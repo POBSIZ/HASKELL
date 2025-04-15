@@ -1,8 +1,8 @@
 module Main (main) where
 
-import Prism_2 (p2)
+import Complex_1 (c1)
 
 main :: IO ()
 main = do
-  p2
+  c1
   putStrLn $ ""
