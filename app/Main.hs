@@ -1,8 +1,7 @@
 module Main (main) where
 
-import Complex_1 (c1)
+import Todo_CLI (todoCliApp)
 
 main :: IO ()
 main = do
-  c1
-  putStrLn $ ""
+  todoCliApp

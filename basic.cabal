@@ -49,6 +49,8 @@ library
       Prism_1
       Prism_2
       Complex_1
+      Todo
+      Todo_CLI
   other-modules:
       Paths_basic
   autogen-modules:
@@ -60,6 +62,7 @@ library
       gpt_teacher/src/3.lens
       gpt_teacher/src/4.prism
       gpt_teacher/src/5.complex
+      gpt_teacher/projects
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
