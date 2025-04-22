@@ -22,6 +22,10 @@ dependencies:
   - mtl
   - transformers
   - lens
+  - aeson
+  - bytestring
+  - directory
+  - time
 
 ghc-options:
   - -Wall

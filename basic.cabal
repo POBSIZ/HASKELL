@@ -65,11 +65,15 @@ library
       gpt_teacher/projects
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
     , containers
+    , directory
     , lens
     , mtl
     , parallel
+    , time
     , transformers
   default-language: Haskell2010
 
@@ -83,11 +87,15 @@ executable basic
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , basic
+    , bytestring
     , containers
+    , directory
     , lens
     , mtl
     , parallel
+    , time
     , transformers
   default-language: Haskell2010
